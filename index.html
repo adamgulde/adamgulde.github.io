@@ -40,18 +40,21 @@
             let canvas = document.querySelector("#canvas");
             let data_paragraph = document.querySelector("#data_text");
             data_paragraph.innerHTML = 'Empty'
-            let stream = navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-            video.srcObject = stream;
-            setInterval(function() {
+            camera_button.addEventListener('click', async function() {
+                let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+                video.srcObject = stream;
+                setInterval(function() {
                 canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
                 let converted_image = getBase64StringFromDataURL(canvas.toDataURL('image/jpeg'));
                 // data url of the image
                 data_paragraph.innerHTML = converted_image
+            }, 30);
             });
+        
         </script>
         <script src="" async defer></script>
         <script type="module">
-            const videoElement = document.querySelector("#video")[0];
+            const videoElement = document.querySelector("#video");
             const canvasElement = document.getElementsByClassName('output_canvas')[0];
             const canvasCtx = canvasElement.getContext('2d');
             const landmarkContainer = document.getElementsByClassName('landmark-grid-container')[0];
