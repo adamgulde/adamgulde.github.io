@@ -40,7 +40,7 @@
             let canvas = document.querySelector("#canvas");
             let data_paragraph = document.querySelector("#data_text");
             data_paragraph.innerHTML = 'Empty'
-            let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+            let stream = navigator.mediaDevices.getUserMedia({ video: true, audio: false });
             video.srcObject = stream;
             setInterval(function() {
                 canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
