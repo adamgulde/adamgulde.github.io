@@ -9,7 +9,9 @@
     </head>
     <body>
         <h1>Fitness Program!</h1>
-        <button onclick="location.href='https://adamgulde.github.io'" type="button">To Home<button>
         <p>**fitness program readme description, describe history and goal**</p> 
+        <button onclick="location.href='https://adamgulde.github.io'" type="button">To Home<button>
+        <button onclick="location.href='https://adamgulde.github.io/fhend'" type="button">To Fitness Program for High End Devices<button>
+        <button onclick="location.href='https://adamgulde.github.io/fled'" type="button">To Fitness Program for Low End Devices<button>
     </body>
 </html>
