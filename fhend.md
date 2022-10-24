@@ -17,8 +17,8 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <h1>On-site Fitness Program</h1>
-        <button onclick="location.href='https://adamgulde.github.io'" type="button">To Home<button>
-        <button onclick="location.href='https://adamgulde.github.io/fitness'" type="button">To Fitness Main Page<button>
+        <button onclick="location.href='https://adamgulde.github.io'" type="button">To Home</button>
+        <button onclick="location.href='https://adamgulde.github.io/fitness'" type="button">To Fitness Main Page</button>
         <p>FHEND: Fitness High END</p>
         <p>Experimental fitness program built for high-end devices to run in the browser.</p>
         <video id="video" width="640" height="480" autoplay></video>

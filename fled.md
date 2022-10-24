@@ -12,8 +12,8 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <h1>Webpage Camera Testing</h1>
-        <button onclick="location.href='https://adamgulde.github.io'" type="button">To Home Page<button>
-        <button onclick="location.href='https://adamgulde.github.io/fitness'" type="button">To Fitness Main Page<button>
+        <button onclick="location.href='https://adamgulde.github.io'" type="button">To Home Page</button>
+        <button onclick="location.href='https://adamgulde.github.io/fitness'" type="button">To Fitness Main Page</button>
         <p>FLED: Fitness Low-End Devices</p>
         <p>Experimental fitness program '''optimized''' for low-end devices that cannot run the fitness program within the browser.</p>
         <video id="video" width="640" height="480" autoplay></video>
