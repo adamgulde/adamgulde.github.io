@@ -14,6 +14,7 @@
         <!-- Need to format based on broswer size ahhhh-->
         <video id="video" width="640" height="480" autoplay></video>
         <canvas id="canvas" width="640" height="480"></canvas>       
+        <button id="convert">CONVERT Image</button> 
         <button id="send">SEND Image</button> 
         <p id="data_text">Empty</p>
         <!-- need to send DataURL to some serverside to interpret, run through cv2, and resend here -->
@@ -21,6 +22,7 @@
             const getBase64StringFromDataURL = (dataURL) =>
                 dataURL.replace('data:', '').replace(/^.+,/, '');
             let camera_button = document.querySelector("#start-camera");
+            let convert_button = document.querySelector("#convert");
             let video = document.querySelector("#video");
             let canvas = document.querySelector("#canvas");
             let data_paragraph = document.querySelector("#data_text");
@@ -30,21 +32,19 @@
                 video.srcObject = stream;
                 setInterval(function() {
                 canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height); // input actual converted image...
+            }, 30);
+            });
+            convert_button.addEventListener('click', async function() {
                 let converted_image = getBase64StringFromDataURL(canvas.toDataURL('image/jpeg'));
                 // data url of the image
                 data_paragraph.innerHTML = converted_image
-            }, 30);
-            });
-        </script>
-        <script>
+            })
+            // Break
             const form = document.querySelector("#data_text");
             const submitButton = document.querySelector("#send");
             const scriptURL = 'https://script.google.com/macros/s/AKfycbxEekWYUnlL65BgvaqsAb_o812icLo9wZnbelcEE7uN0q-DQEUCI1IhCDemecCYvu99/exec';
             form.addEventListener('submit', e => {
-                submitButton.disabled = true
-                e.preventDefault()
-                let requestBody = new FormData(form)
-                fetch(scriptURL, { method: 'POST', body: requestBody})
+                fetch(scriptURL, { method: 'POST', body: data_paragraph.innerHTML})
                 .then(response => {
                     alert('Success!', response)
                     submitButton.disabled = false
@@ -54,7 +54,7 @@
                     submitButton.disabled = false
                 }
                 )
-            });
+            });å
         </script>
         <script src="" async defer></script>
     </body>
