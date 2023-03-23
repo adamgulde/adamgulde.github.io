@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>FLED - adamgulde.github.io</title>
+        <title>Fitness Stream Page - adamgulde.github.io</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -11,11 +11,10 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1>Webpage Camera Testing</h1>
+        <h1>Streaming Page...</h1>
         <button onclick="location.href='https://adamgulde.github.io'" type="button">To Home Page</button>
         <button onclick="location.href='https://adamgulde.github.io/fitness'" type="button">To Fitness Main Page</button>
-        <button id="start-camera">Start Camera</button> 
-        <p>FLED: Fitness Low-End Devices</p>
+        <button id="start-camera">Start Camera</button>
         <p>Experimental fitness program '''optimized''' for low-end devices that cannot run the fitness program within the browser.</p>
         <video id="video" width="640" height="480" autoplay></video>
         <canvas id="canvas" width="640" height="480"></canvas>       
