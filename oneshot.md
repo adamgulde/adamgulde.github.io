@@ -59,7 +59,7 @@
                     submitButton.disabled = false
                 }
                 )
-            });å
+            });
         </script>
         <script src="" async defer></script>
     </body>
