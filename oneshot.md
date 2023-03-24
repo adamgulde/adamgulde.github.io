@@ -12,10 +12,15 @@
         <button onclick="location.href='https://adamgulde.github.io'" type="button">To Home</button>
         <button id="start-camera">Start Camera</button> 
         <!-- Need to format based on broswer size ahhhh-->
-        <video id="video" width="640" height="480" autoplay></video>
-        <canvas id="canvas" width="640" height="480"></canvas>       
+        <video id="video" width="320" height="240" autoplay></video>
+        <canvas id="canvas" width="320" height="240"></canvas>       
+        <br>
         <button id="convert">CONVERT Image</button> 
-        <button id="send">SEND Image</button> 
+        <!-- <button id="send">SEND Image</button> -->
+        <form id="form">
+            <button type="submit">SEND Data</button>
+        </form>
+        <br>
         <p id="data_text">Empty</p>
         <!-- need to send DataURL to some serverside to interpret, run through cv2, and resend here -->
         <script>
@@ -40,7 +45,7 @@
                 data_paragraph.innerHTML = converted_image
             })
             // Break
-            const form = document.querySelector("#data_text");
+            const form = document.querySelector("#form");
             const submitButton = document.querySelector("#send");
             const scriptURL = 'https://script.google.com/macros/s/AKfycbxEekWYUnlL65BgvaqsAb_o812icLo9wZnbelcEE7uN0q-DQEUCI1IhCDemecCYvu99/exec';
             form.addEventListener('submit', e => {
