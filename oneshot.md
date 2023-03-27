@@ -20,8 +20,7 @@
         <!-- <form id="form">
             <button type="submit">SEND Data</button>
         </form> -->
-        <br>
-        <iframe id="sheetiFrame" src="https://docs.google.com/spreadsheets/d/1OMRW4Qa9p84-V7J7h2k0c-85WicAcfkKWQ5Ncop4J30/edit?usp=sharing" title="ScuffedBackend" width="500" height="500"></iframe>
+        <iframe id="iFrame" src="https://indevadam.wixsite.com/home/4d-backend" title="ScuffedBackend" width="500" height="500"></iframe>
         <br>
         <p id="data_text">Empty</p>
         <!-- need to send DataURL to some serverside to interpret, run through cv2, and resend here -->
@@ -33,7 +32,7 @@
             let video = document.querySelector("#video");
             let canvas = document.querySelector("#canvas");
             let data_paragraph = document.querySelector("#data_text");
-            let iFrame = document.querySelector("sheetiFrame");
+            let iFrame = document.querySelector("#iFrame");
             data_paragraph.innerHTML = 'Empty'
             camera_button.addEventListener('click', async function() {
                 let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
@@ -44,8 +43,10 @@
             });
             convert_button.addEventListener('click', async function() {
                 let converted_image = getBase64StringFromDataURL(canvas.toDataURL('image/jpeg'));
+                var wixInput = iFrame.contentWindow.document.querySelector("#dataURL");
                 // data url of the image
                 data_paragraph.innerHTML = converted_image
+                wixInput.innerHTML = converted_image
             })
             // USING FORM METHOD- Doesn't work because github pages does not allow POST methods
             // const form = document.querySelector("#form");
@@ -64,9 +65,11 @@
             //     )
             // });
             // USING GOOGLEDOC IFRAME METHOD
-            var iframe = document.getElementById("iFramew");
-            var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
-            elmnt.style.display = "none";
+            // var iframe = document.getElementById("iFrame");
+            // var elmnt = iframe.contentWindow.document.getElementsByClassName("goog-inline-block grid4-inner-container");
+            // data_paragraph.innerHTML = elmnt.length
+            // USING WIXSITE IFRAME METHOD
+            var elmnt = iFrame.contentWindow.document.querySelector("#serverReturnText");
         </script>
         <script src="" async defer></script>
     </body>
