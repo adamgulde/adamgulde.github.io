@@ -20,7 +20,7 @@
         <!-- <form id="form">
             <button type="submit">SEND Data</button>
         </form> -->
-        <iframe id="iFrame" src="https://indevadam.wixsite.com/home/4d-backend" title="ScuffedBackend" width="500" height="500"></iframe>
+        <iframe id="iFrame" src="https://indevadam.wixsite.com/home/4d-backend" title="ScuffedBackend" width="500" height="1000"></iframe>
         <br>
         <p id="data_text">Empty</p>
         <!-- need to send DataURL to some serverside to interpret, run through cv2, and resend here -->
@@ -43,36 +43,13 @@
             });
             convert_button.addEventListener('click', async function() {
                 let converted_image = getBase64StringFromDataURL(canvas.toDataURL('image/jpeg'));
-                var wixInput = iFrame.contentWindow.document.querySelector("#dataURL");
                 // data url of the image
-                data_paragraph.innerHTML = converted_image
-                wixInput.innerHTML = converted_image
-            })
-            // USING FORM METHOD- Doesn't work because github pages does not allow POST methods
-            // const form = document.querySelector("#form");
-            // const submitButton = document.querySelector("#send");
-            // const scriptURL = 'https://script.google.com/macros/s/AKfycbxEekWYUnlL65BgvaqsAb_o812icLo9wZnbelcEE7uN0q-DQEUCI1IhCDemecCYvu99/exec';
-            // form.addEventListener('submit', e => {
-            //     fetch(scriptURL, { method: 'POST', body: data_paragraph.innerHTML})
-            //     .then(response => {
-            //         alert('Success!', response)
-            //         submitButton.disabled = false
-            //         })
-            //     .catch(error => {
-            //     alert('Error!', error.message)
-            //         submitButton.disabled = false
-            //     }
-            //     )
-            // });
-            // USING GOOGLEDOC IFRAME METHOD
-            // var iframe = document.getElementById("iFrame");
-            // var elmnt = iframe.contentWindow.document.getElementsByClassName("goog-inline-block grid4-inner-container");
-            // data_paragraph.innerHTML = elmnt.length
-            // USING WIXSITE IFRAME METHOD
-            var elmnt = iFrame.contentWindow.document.querySelector("#serverReturnText");
+                data_paragraph.innerHTML = converted_image;
+                iFrame.contentWindow.postMessage(converted_image, "https://indevadam.wixsite.com/home/4d-backend");
+            });
         </script>
         <script src="" async defer></script>
     </body>
 </html>
-
+<!--AHHHHHHHHHHHHHHHHHHHHHHH-->
 
