@@ -16,10 +16,11 @@
         <canvas id="canvas" width="320" height="240"></canvas>       
         <br>
         <button id="convert">CONVERT Image</button> 
-        <!-- <button id="send">SEND Image</button> -->
-        <form id="form">
+        <button id="send">SEND Image</button>
+        <!-- <form id="form">
             <button type="submit">SEND Data</button>
-        </form>
+        </form> -->
+        <iframe id="sheetiFrame" src="https://docs.google.com/spreadsheets/d/1OMRW4Qa9p84-V7J7h2k0c-85WicAcfkKWQ5Ncop4J30/edit?usp=sharing" title="ScuffedBackend"></iframe>
         <br>
         <p id="data_text">Empty</p>
         <!-- need to send DataURL to some serverside to interpret, run through cv2, and resend here -->
@@ -31,6 +32,7 @@
             let video = document.querySelector("#video");
             let canvas = document.querySelector("#canvas");
             let data_paragraph = document.querySelector("#data_text");
+            let iFrame = document.querySelector("sheetiFrame");
             data_paragraph.innerHTML = 'Empty'
             camera_button.addEventListener('click', async function() {
                 let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
@@ -44,22 +46,26 @@
                 // data url of the image
                 data_paragraph.innerHTML = converted_image
             })
-            // Break
-            const form = document.querySelector("#form");
-            const submitButton = document.querySelector("#send");
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxEekWYUnlL65BgvaqsAb_o812icLo9wZnbelcEE7uN0q-DQEUCI1IhCDemecCYvu99/exec';
-            form.addEventListener('submit', e => {
-                fetch(scriptURL, { method: 'POST', body: data_paragraph.innerHTML})
-                .then(response => {
-                    alert('Success!', response)
-                    submitButton.disabled = false
-                    })
-                .catch(error => {
-                alert('Error!', error.message)
-                    submitButton.disabled = false
-                }
-                )
-            });
+            // USING FORM METHOD- Doesn't work because github pages does not allow POST methods
+            // const form = document.querySelector("#form");
+            // const submitButton = document.querySelector("#send");
+            // const scriptURL = 'https://script.google.com/macros/s/AKfycbxEekWYUnlL65BgvaqsAb_o812icLo9wZnbelcEE7uN0q-DQEUCI1IhCDemecCYvu99/exec';
+            // form.addEventListener('submit', e => {
+            //     fetch(scriptURL, { method: 'POST', body: data_paragraph.innerHTML})
+            //     .then(response => {
+            //         alert('Success!', response)
+            //         submitButton.disabled = false
+            //         })
+            //     .catch(error => {
+            //     alert('Error!', error.message)
+            //         submitButton.disabled = false
+            //     }
+            //     )
+            // });
+            // USING GOOGLEDOC IFRAME METHOD
+            var iframe = document.getElementById("iFrame");
+            var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
+            elmnt.style.display = "none";
         </script>
         <script src="" async defer></script>
     </body>
