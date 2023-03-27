@@ -20,7 +20,8 @@
         <!-- <form id="form">
             <button type="submit">SEND Data</button>
         </form> -->
-        <iframe id="sheetiFrame" src="https://docs.google.com/spreadsheets/d/1OMRW4Qa9p84-V7J7h2k0c-85WicAcfkKWQ5Ncop4J30/edit?usp=sharing" title="ScuffedBackend"></iframe>
+        <br>
+        <iframe id="sheetiFrame" src="https://docs.google.com/spreadsheets/d/1OMRW4Qa9p84-V7J7h2k0c-85WicAcfkKWQ5Ncop4J30/edit?usp=sharing" title="ScuffedBackend" width="500" height="500"></iframe>
         <br>
         <p id="data_text">Empty</p>
         <!-- need to send DataURL to some serverside to interpret, run through cv2, and resend here -->
@@ -63,7 +64,7 @@
             //     )
             // });
             // USING GOOGLEDOC IFRAME METHOD
-            var iframe = document.getElementById("iFrame");
+            var iframe = document.getElementById("iFramew");
             var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
             elmnt.style.display = "none";
         </script>
