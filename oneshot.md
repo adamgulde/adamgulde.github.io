@@ -17,9 +17,6 @@
         <canvas id="canvas" width="320" height="240"></canvas>       
         <br>
         <button id="convert">CONVERT Image</button> 
-        <!-- <form id="form">
-            <button type="submit">SEND Data</button>
-        </form> -->
         <br>
         <p id="data_text">Empty</p>
         <!-- need to send DataURL to some serverside to interpret, run through cv2, and resend here -->
@@ -43,7 +40,7 @@
                 let converted_image = getBase64StringFromDataURL(canvas.toDataURL('image/jpeg'));
                 // data url of the image
                 data_paragraph.innerHTML = converted_image;
-                insertIntoDB(convertedImage, "");
+                insertIntoDB(convertedImage, "Data sent... waiting on response");
             });
         </script>
         <script src="" async defer></script>
