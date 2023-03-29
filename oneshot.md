@@ -36,6 +36,7 @@
                 canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height); // input actual converted image...
             }, 30);
             });
+            import insertIntoDB from 'server.js';
             convert_button.addEventListener('click', async function() {
                 let converted_image = getBase64StringFromDataURL(canvas.toDataURL('image/jpeg'));
                 // data url of the image

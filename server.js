@@ -1,6 +1,6 @@
 import { createConnection } from "mysql2/promise";
 
-const insertIntoDB = async (base64String, returnString) => {
+export const insertIntoDB = async (base64String, returnString) => {
     const connection = await createConnection({
         // not me NOT encrypting my data!??
         host: "sql9.freesqldatabase.com",
