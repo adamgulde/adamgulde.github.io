@@ -2,6 +2,7 @@ const mysql = require("mysql2/promise");
 
 const insertIntoDB = async (base64String, returnString) => {
     const connection = await mysql.createConnection({
+        // not me NOT encrypting my data!??
         host: "sql9.freesqldatabase.com",
         user: "sql9609574",
         password: "U6JqdflMxh",
@@ -19,4 +20,4 @@ const insertIntoDB = async (base64String, returnString) => {
     }
 };
 
-insertIntoDB("lognnggoengonegoengonegoeogngo", "this is fake")
+// insertIntoDB("lognnggoengonegoengonegoeogngo", "this is fake")

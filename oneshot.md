@@ -6,6 +6,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <script src="server.js"></script>
     </head>
     <body>
         <h1>One-Shot AI Implementation (Experimental)</h1>
@@ -16,11 +17,9 @@
         <canvas id="canvas" width="320" height="240"></canvas>       
         <br>
         <button id="convert">CONVERT Image</button> 
-        <button id="send">SEND Image</button>
         <!-- <form id="form">
             <button type="submit">SEND Data</button>
         </form> -->
-        <iframe id="iFrame" src="https://indevadam.wixsite.com/home/4d-backend" title="ScuffedBackend" width="500" height="1000"></iframe>
         <br>
         <p id="data_text">Empty</p>
         <!-- need to send DataURL to some serverside to interpret, run through cv2, and resend here -->
@@ -32,7 +31,6 @@
             let video = document.querySelector("#video");
             let canvas = document.querySelector("#canvas");
             let data_paragraph = document.querySelector("#data_text");
-            let iFrame = document.querySelector("#iFrame");
             data_paragraph.innerHTML = 'Empty'
             camera_button.addEventListener('click', async function() {
                 let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
@@ -45,7 +43,7 @@
                 let converted_image = getBase64StringFromDataURL(canvas.toDataURL('image/jpeg'));
                 // data url of the image
                 data_paragraph.innerHTML = converted_image;
-                iFrame.contentWindow.postMessage(converted_image, "https://indevadam.wixsite.com/home/4d-backend");
+                insertIntoDB(convertedImage, "");
             });
         </script>
         <script src="" async defer></script>
