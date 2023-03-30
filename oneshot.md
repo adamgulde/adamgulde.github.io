@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-        <script src="server.js"></script>
+        <script src="server.js" type="module"></script>
     </head>
     <body>
         <h1>One-Shot AI Implementation (Experimental)</h1>
@@ -19,7 +19,6 @@
         <button id="convert">CONVERT Image</button> 
         <br>
         <p id="data_text">Empty</p>
-        <!-- need to send DataURL to some serverside to interpret, run through cv2, and resend here -->
         <script>
             const getBase64StringFromDataURL = (dataURL) =>
                 dataURL.replace('data:', '').replace(/^.+,/, '');
@@ -33,13 +32,11 @@
                 let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
                 video.srcObject = stream;
                 setInterval(function() {
-                canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height); // input actual converted image...
+                canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height); 
             }, 30);
             });
-            import insertIntoDB from 'server.js';
             convert_button.addEventListener('click', async function() {
                 let converted_image = getBase64StringFromDataURL(canvas.toDataURL('image/jpeg'));
-                // data url of the image
                 data_paragraph.innerHTML = converted_image;
                 insertIntoDB(convertedImage, "Data sent... waiting on response");
             });
