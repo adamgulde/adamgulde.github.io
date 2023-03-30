@@ -1,4 +1,4 @@
-import { createConnection } from "mysql2/promise";
+import { createConnection } from "/node_modules/mysql2/promise.js";
 
 export const insertIntoDB = async (base64String, returnString) => {
     const connection = await createConnection({
