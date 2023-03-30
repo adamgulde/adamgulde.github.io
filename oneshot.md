@@ -19,7 +19,8 @@
         <button id="convert">CONVERT Image</button> 
         <br>
         <p id="data_text">Empty</p>
-        <script>
+        <script type="module">
+            import insertIntoDB from "server.js";
             const getBase64StringFromDataURL = (dataURL) =>
                 dataURL.replace('data:', '').replace(/^.+,/, '');
             let camera_button = document.querySelector("#start-camera");
