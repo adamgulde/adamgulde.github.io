@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-        <script src="server.js" type="module"></script>
+        <!--<script src="server.js" type="module"></script>-->
     </head>
     <body>
         <h1>One-Shot AI Implementation (Experimental)</h1>
@@ -19,26 +19,8 @@
         <button id="convert">CONVERT Image</button> 
         <br>
         <p id="data_text">Empty</p>
+        <script type=“text/javascript” src=“/server.js”></script>
         <script type="module">
-            import { createConnection } from "/node_modules/mysql2/promise.js";
-            const insertIntoDB = async (base64String, returnString) => {
-                const connection = await createConnection({
-                    // not me NOT encrypting my data!??
-                    host: "sql9.freesqldatabase.com",
-                    user: "sql9609574",
-                    password: "U6JqdflMxh",
-                    database: "sql9609574",
-                    port:3306,
-                })
-                try {
-                    await connection.query(
-                        "INSERT INTO project4 (base64String, returnString) VALUES ('"+base64String+"', '"+returnString+"')"
-                    );
-                    console.log("Inserted ("+base64String+","+returnString+") into DB")
-                } catch (error) {
-                    console.log(error)
-                }
-            };
             const getBase64StringFromDataURL = (dataURL) =>
                 dataURL.replace('data:', '').replace(/^.+,/, '');
             let camera_button = document.querySelector("#start-camera");
