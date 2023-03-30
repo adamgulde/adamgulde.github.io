@@ -1,6 +1,6 @@
-import { createConnection } from "./node_modules/mysql2/promise";
-            const insertIntoDB = async (base64String, returnString) => {
-                const connection = await createConnection({
+import * as promise from "./node_modules/mysql2/promise.js";
+            export const insertIntoDB = async (base64String, returnString) => {
+                const connection = await promise.createConnection({
                     // not me NOT encrypting my data!??
                     host: "sql9.freesqldatabase.com",
                     user: "sql9609574",
